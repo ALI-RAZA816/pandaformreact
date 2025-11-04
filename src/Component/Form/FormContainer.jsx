@@ -3,11 +3,14 @@ import Head from './Head';
 import style from './FormContainer.module.css'
 import Form from './Form';
 import Foot from './Foot';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 function FormContainer() {
   const [movesEyes, setmovesEyes] = useState(false);
   const [movesHands, setHandsEyes] = useState(false);
+const name = useRef();
+const password = useRef();
+
   const EyesFocusHandler = () => {
     setmovesEyes(true);
   }
@@ -25,13 +28,17 @@ function FormContainer() {
   }
 const submitHandler = (event)=>{
 event.preventDefault();
- alert("You login successfully.");
+if(!name.current.value || !password.current.value){ 
+alert("Field is required.");
+return;
+}
+ 
 }
 
   return (
     <div className={style.formContainer}>
       <Head movesEyes={movesEyes} movesHands = {movesHands} />
-      <Form submitHandler = { submitHandler} FocusHandler={EyesFocusHandler} BlurHandler={EyesBlurHandler} HandFocusHandler = {HandFocusHandler} HandBlurHandler = {HandBlurHandler} />
+      <Form submitHandler = { submitHandler} name ={name} password = {password} FocusHandler={EyesFocusHandler} BlurHandler={EyesBlurHandler} HandFocusHandler = {HandFocusHandler} HandBlurHandler = {HandBlurHandler} />
       <Foot />
     </div>
   )
