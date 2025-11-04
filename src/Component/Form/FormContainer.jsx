@@ -31,8 +31,9 @@ event.preventDefault();
 if(!name.current.value || !password.current.value){ 
 alert("Field is required.");
 return;
+}else{
+alert("You successfully login.");
 }
-alert("You successfully login.")
  
 }
 
