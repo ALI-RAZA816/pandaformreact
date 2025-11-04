@@ -23,11 +23,15 @@ function FormContainer() {
   const HandBlurHandler = () => {
     setHandsEyes(false);
   }
+const submitHandler = (event)=>{
+event.preventDefault();
+ alert("You login successfully.");
+}
 
   return (
     <div className={style.formContainer}>
       <Head movesEyes={movesEyes} movesHands = {movesHands} />
-      <Form FocusHandler={EyesFocusHandler} BlurHandler={EyesBlurHandler} HandFocusHandler = {HandFocusHandler} HandBlurHandler = {HandBlurHandler} />
+      <Form submitHandler = { submitHandler} FocusHandler={EyesFocusHandler} BlurHandler={EyesBlurHandler} HandFocusHandler = {HandFocusHandler} HandBlurHandler = {HandBlurHandler} />
       <Foot />
     </div>
   )
