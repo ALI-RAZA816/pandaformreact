@@ -1,9 +1,9 @@
 
 import style from './Form.module.css'
 
-function Form({FocusHandler ,BlurHandler, HandBlurHandler, HandFocusHandler}) {
+function Form({FocusHandler ,BlurHandler, HandBlurHandler, HandFocusHandler,submitHandler}) {
     return (
-        <form action="" className={style.form}>
+        <form action="" onSubmit = {submitHandler} className={style.form}>
             <label htmlFor="username">Username:</label>
             <input type="text" onFocus={FocusHandler} onBlur={BlurHandler} placeholder="Username here..." id="username" className={style.userNameField} />
             <label htmlFor="password">Password:</label>
